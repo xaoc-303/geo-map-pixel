@@ -1,0 +1,12 @@
+language: php
+
+php:
+  - 7.2
+
+install:
+  - composer self-update
+  - composer install --prefer-source --no-interaction
+
+script:
+  - php vendor/bin/phpunit tests/GeoMapPixelTest.php
+  - php vendor/bin/phpunit tests/GeoMapPixelConsoleTest.php

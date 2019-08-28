@@ -1,5 +1,7 @@
 # GeoMapPixel
 
+[![Build Status](https://travis-ci.org/xaoc-303/geo-map-pixel.svg?branch=master)](https://travis-ci.org/xaoc-303/geo-map-pixel)
+
 Creates a map of the specified size.
 Where are existing cities.
 
