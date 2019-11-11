@@ -15,7 +15,7 @@ use Command\InsertIntoDbCommand;
 
 define('PATH_STORAGE', __DIR__ . DIRECTORY_SEPARATOR . 'storage');
 
-$options = getopt("", ['download::','unzip::', 'insert::', 'generate::', 'country:', 'each:', 'width:', 'height:', 'color:']);
+$options = getopt("", ['download::','unzip::', 'insert::', 'generate::', 'country:', 'each:', 'width:', 'height:', 'color:', 'timestamp::']);
 
 $mapCountry = isset($options['country']) ? strtoupper($options['country']) : 'ALL';
 
@@ -39,7 +39,13 @@ if (isset($options['generate'])) {
     $mapHeight = isset($options['height']) ? $options['height'] : 900;
     $mapEach = isset($options['each']) ? $options['each'] : 10000;
     $mapColor = isset($options['color']) ? $options['color'] : '255,255,155';
+    $timestamp = isset($options['timestamp']);
 
-    $command = new GenerateMapCommand($mapCountry, $mapEach, $mapWidth, $mapHeight, $mapColor);
+    $command = new GenerateMapCommand($mapCountry, $mapEach, $mapWidth, $mapHeight, $mapColor, $timestamp);
+    $command->execute();
+}
+
+if (isset($options['timestamp'])) {
+    $command = new FileDownloadCommand($mapCountry);
     $command->execute();
 }

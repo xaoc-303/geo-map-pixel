@@ -13,6 +13,7 @@ class GenerateMapStrategyFile extends GenerateMapStrategyAbstract
 
     public function generate(&$map, $width, $height, &$color, $each = 1)
     {
+        $this->map = $map;
         $this->width = $width;
         $this->height = $height;
         $this->color = $color;
@@ -28,7 +29,9 @@ class GenerateMapStrategyFile extends GenerateMapStrategyAbstract
             if (++$each_i > $each) {
                 if (!empty($row)) {
                     $row_array = explode("\t", $row);
-                    $this->drawPixelForLatLon($map, $row_array[4], $row_array[5]);
+
+                    $this->setDrawColorCountry($row_array);
+                    $this->drawPixelForLatLon($row_array[4], $row_array[5]);
                 }
                 $each_i = 1;
             }

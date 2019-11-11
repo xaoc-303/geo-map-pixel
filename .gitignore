@@ -4,3 +4,4 @@
 composer.phar
 php-cs-fixer.phar
 .php_cs.cache
+list_colors.gif

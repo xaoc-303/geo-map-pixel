@@ -1,3 +1,8 @@
 *
 !.gitignore
-!map1600x900e1.gif
+!map1680x1050e1.gif
+!map3840x2400e1.gif
+!map3840x2400e1-color.gif
+!map7680x4800e1.gif
+!map28000x17500e1-usa.png
+!map28000x17500e1-europe.png
